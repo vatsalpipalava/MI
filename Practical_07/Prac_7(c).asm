@@ -1,0 +1,21 @@
+
+;<Program title>
+
+
+;data
+
+
+;code
+	MVI C,0AH
+	ANI 00H
+	LXI H,2000H
+LOOP:   ADD M
+	INX H
+	JC CARRY
+	DCR C
+	JNZ LOOP
+	STA 2080H
+	HLT
+CARRY:  MVI A,0FFH
+	STA 2080H
+	hlt

@@ -1,0 +1,29 @@
+
+;<Program title>
+
+
+;data
+
+
+;code
+	LXI H,3000H
+	LXI SP,4000H
+	LXI B,2000H
+	MVI E,05H
+LOOP:	MOV A,M
+	MVI D,08H
+	PUSH B
+	MVI B,00H
+LOOP1:	RAL
+	JNC COUNT
+	INR B
+COUNT:	DCR D
+	JNZ LOOP1
+	MOV A,B
+	POP B
+	STAX B
+	INX B
+	DCR E
+	INX H
+	JNZ LOOP
+	HLT

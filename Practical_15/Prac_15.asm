@@ -1,0 +1,20 @@
+
+;<Program title>
+
+
+;data
+
+
+;code
+	LXI H,2000H
+	MVI C,0AH
+LOOP:	MOV A,M
+	ANI 01H
+	JNZ ODD
+	INR B
+	JMP STORE
+ODD:	INR D
+STORE:	INX H
+	DCR C
+	JNZ LOOP
+	HLT

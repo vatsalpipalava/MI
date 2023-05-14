@@ -1,0 +1,22 @@
+
+;<Program title>
+
+
+;data
+
+
+;code
+	LXI H,1050H
+	MOV A,M
+	MVI B,00H
+	MVI C,04H
+LOOP:	INX H
+	ADD M
+	JNC SKIP
+	INR B
+SKIP:	DCR C
+	JNZ LOOP
+	STA 2070H
+	MOV A,B
+	STA 2071H
+	HLT

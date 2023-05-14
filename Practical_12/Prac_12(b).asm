@@ -1,0 +1,20 @@
+
+;<Program title>
+
+;data
+
+
+;code
+	MVI B,03H
+	MVI C,14H
+	MVI D,00H
+	MOV A,C
+LOOP:	CMP B
+	JC END
+	SUB B
+	INR D
+	JMP LOOP
+END:	STA 3001H
+	MOV A,D
+	STA 3000H
+	HLT

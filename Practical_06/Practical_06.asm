@@ -1,0 +1,22 @@
+
+;<Program title>
+
+;data
+
+
+;code
+
+	LXI H,2000H
+	MOV A,M
+	MOV B,A
+	CPI 00H
+	JZ ZERO
+	RLC
+	JC NEG
+	MVI A,11H
+	JMP END
+ZERO: 	MVI A,00H
+	JMP END
+NEG:	MVI A,22H
+	JMP END
+END: 	hlt
